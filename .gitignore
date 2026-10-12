@@ -1,0 +1,25 @@
+# Saída da compilação
+build/
+build_debug/
+*.o
+*.obj
+*.res
+*.exe
+
+# Arquivos gerados ao usar o programa (modo portátil)
+logs/
+recordings/
+config/settings.json
+
+# Pacotes e temporários
+*.zip
+*.7z
+__pycache__/
+*.pyc
+
+# Arquivos do sistema e de editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
