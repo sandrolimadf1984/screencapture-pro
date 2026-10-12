@@ -1,0 +1,36 @@
+# Compila o ScreenCapturePro.exe a cada envio para o GitHub.
+# O .exe gerado fica disponível na aba "Actions", dentro da execução,
+# em "Artifacts" (para quem quiser testar a versão mais recente do código).
+name: Compilar
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-exe:
+    name: ScreenCapturePro.exe (Windows 64 bits)
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Instalar o compilador MinGW-w64
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends g++-mingw-w64-x86-64-posix binutils-mingw-w64-x86-64
+
+      - name: Compilar
+        run: bash build.sh
+
+      - name: Guardar o .exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: ScreenCapturePro-exe
+          path: build/ScreenCapturePro.exe
+          if-no-files-found: error
