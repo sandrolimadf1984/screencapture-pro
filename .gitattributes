@@ -1,0 +1,10 @@
+# Normaliza as quebras de linha no repositório
+* text=auto
+
+# Scripts de shell precisam de LF (senão o bash do MSYS2/Linux falha)
+*.sh text eol=lf
+
+# Arquivos binários: nunca converter
+*.png binary
+*.ico binary
+*.ttf binary
