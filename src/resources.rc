@@ -1,0 +1,40 @@
+#include <windows.h>
+#include "resource.h"
+#include "branding.h"
+
+1 24 "app.manifest"
+
+IDI_APP ICON "../assets/app.ico"
+IDI_REC ICON "../assets/rec.ico"
+
+IDR_FONT_REGULAR RCDATA "../assets/fonts/NotoSans-Regular.subset.ttf"
+IDR_FONT_BOLD RCDATA "../assets/fonts/NotoSans-Bold.subset.ttf"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION APP_VERSION_RC
+ PRODUCTVERSION APP_VERSION_RC
+ FILEFLAGSMASK 0x3fL
+ FILEFLAGS 0x0L
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_APP
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041604B0"
+        BEGIN
+            VALUE "CompanyName", APP_AUTHOR_U8
+            VALUE "FileDescription", APP_DESCRIPTION
+            VALUE "FileVersion", APP_VERSION_U8
+            VALUE "InternalName", APP_ID_U8
+            VALUE "LegalCopyright", APP_COPYRIGHT_U8
+            VALUE "OriginalFilename", APP_EXE_U8
+            VALUE "ProductName", APP_NAME_U8
+            VALUE "ProductVersion", APP_VERSION_U8
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x416, 1200
+    END
+END
